@@ -1,0 +1,40 @@
+﻿@page "{id:int}"
+@model RazorPagesMovie.Pages.Movies.DetailsModel
+
+@{
+    ViewData["Title"] = Model.Movie.Title;
+}
+
+<div class="container">
+
+    <h1>@Model.Movie.Title</h1>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <img src="@Model.Movie.ImageUri" class="img-fluid" />
+        </div>
+
+        <div class="col-md-8">
+
+            <h4>Rank: @Model.Movie.Rank</h4>
+
+            <h4>Price: $@Model.Movie.Price</h4>
+
+            <p><strong>Release Date:</strong> @Model.Movie.ReleaseDate.ToShortDateString()</p>
+
+            <p><strong>Genre:</strong> @Model.Movie.Genre</p>
+
+            <a asp-page="/Index" class="btn btn-secondary">
+                Back
+            </a>
+
+            <button class="btn btn-success">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

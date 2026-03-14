@@ -1,0 +1,49 @@
+﻿@page
+@model RazorPagesMovie.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "The Retro Movie Store";
+}
+
+<h1 class="mb-4">The Retro Movie Store</h1>
+
+<div class="row">
+    @*chat helped*@
+    @foreach (var movie in Model.Movies)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+
+                <div class="card-body">
+
+                    <div class="row fw-bold">
+                        <div class="col-2">
+                            @movie.Rank
+                        </div>
+
+                        <div class="col-7">
+                            @movie.Title
+                        </div>
+
+                        <div class="col-3 text-end">
+                            $@movie.Price
+                        </div>
+                    </div>
+
+                    <img src="@movie.ImageUri" class="img-fluid mt-2 mb-2" />
+
+                    <p>@movie.ReleaseDate.ToShortDateString()</p>
+                    <p>@movie.Genre</p>
+
+                    <a asp-page="/Movies/Details"
+                       asp-route-id="@movie.Id"
+                       class="btn btn-primary">
+                        Details
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
